@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BGG by Chandan</title>
-    <link rel="stylesheet" href="backgroundGradientGeneratot.css" />
+    <!-- <link rel="stylesheet" href="backgroundGradientGeneratot.css" /> -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
@@ -13,9 +13,99 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+    
+      html {
+        color: #fff;
+        font-size: 62.5%;
+      }
+    
+      body {
+        background-image: linear-gradient(to top left, #5ede7b, #02a171);
+      }
+    
+      .mainDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    
+      .contentDiv {
+        text-align: center;
+        width: 30%;
+        height: 15%;
+      }
+    
+      .btnClass {
+        display: flex;
+        justify-content: space-around;
+      }
+    
+      button {
+        border-radius: 5rem;
+        padding: 0.5rem 2rem;
+        cursor: pointer;
+        border: 2px solid black;
+        margin: 0 5rem;
+        text-transform: uppercase;
+        box-shadow: 10px 10px 14px 0px #000;
+      }
+    
+      #myButton {
+        background-color: #5ede7b;
+        color: #fff;
+      }
+    
+      #myButton2 {
+        background-color: #02a171;
+        color: #fff;
+      }
+    
+      h2 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin: 2rem;
+      }
+    
+      .copyCode {
+        background-image: linear-gradient(to right, #5ede7b, #02a171);
+        height: 100%;
+        font-size: 1.6rem;
+        text-align: start;
+        backdrop-filter: blur(10px);
+        border-left: 3px solid #e4e588;
+        padding: 5px 5px 5px 15px;
+        border-radius: 5px;
+        box-shadow: 10px 10px 14px 0px #000;
+      }
+    
+      i {
+        font-size: 2rem;
+        border: 0.3rem solid white;
+        padding: 1rem;
+        border-radius: 50%;
+        box-shadow: 10px 10px 14px 0px #000;
+      }
+    
+      .iconsDiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 5rem;
+        width: 65%;
+      }
+    </style>
   </head>
   <body>
-    <section>
+    <div class="mainDiv">
       <div class="iconsDiv">
         <i class="fas fa-arrow-up" id="topArrow"></i>
         <i class="fas fa-arrow-down" id="bottomArrow"></i>
@@ -26,19 +116,132 @@
         <i class="fas fa-arrow-down" id="bottomLeftArrow" style="transform: rotate(45deg)"></i>
         <i class="fas fa-arrow-right" id="bottomRightArrow" style="transform: rotate(45deg)"></i>
       </div>
-      <div class="btnClass">
-        <button id="myButton">#5EDE7B</button>
-        <button id="myButton2">#02A171</button>
+      <div class="contentDiv">
+        <div class="btnClass">
+          <button id="myButton">#5EDE7B</button>
+          <button id="myButton2">#02A171</button>
+        </div>
+        <h2>Click below to copy CSS code</h2>
+        <div class="copyCode">
+          background-image: linear-gradient(to right, #5EDE7B, #02A171);
+        </div>
+        <p style="margin-top: 5rem;">Copyright : &#169; <a href="https://www.linkedin.com/in/chandan2606/" style="color: #fff;">Chandan Kumar</a>.</p>
+        <p style="margin-top: 0.5rem;">Note: Supports only in desktop view (WIP)</p>
       </div>
-      <h2>Click below to copy CSS code</h2>
-      <div class="copyCode">
-        background-image: linear-gradient(to right, #5EDE7B, #02A171);
-      </div>
-      <p style="margin-top: 10rem;">Copyright : &#169; <a href="https://www.linkedin.com/in/chandan2606/" target="_blank" style="color: #fff;">Chandan Kumar</a>.</p>
-      <p style="margin-top: 0.5rem;">Note: Supports only in desktop view (WIP)</p>
-    </section>
+    </div>
+    <script>
+      let btn1 = document.getElementById("myButton");
+      let btn2 = document.getElementById("myButton2");
+      let copyCodeDiv = document.querySelector('.copyCode');
+
+      let topArrowButton = document.getElementById('topArrow');
+      let bottomArrowButton = document.getElementById('bottomArrow');
+      let leftArrowButton = document.getElementById('leftArrow');
+      let rightArrowButton = document.getElementById('rightArrow');
+      let topLeftArrowButton = document.getElementById('topLeftArrow');
+      let topRightArrowButton = document.getElementById('topRightArrow');
+      let bottomLeftArrowButton = document.getElementById('bottomLeftArrow');
+      let bottomRightArrowButton = document.getElementById('bottomRightArrow');
+
+      let rgb1 = "#5EDE7B";
+      let rgb2 = "#02A171";
+      let direction = "to right";
+
+      const hexValues = () => {
+        let myHexValues = "0123456789ABCDEF";
+        let hexColor = "#";
+        for (let i = 0; i < 6; i++) {
+          hexColor = hexColor + myHexValues[Math.floor(Math.random() * 16)];
+        }
+        return hexColor;
+      };
+
+      const handleButton1 = () => {
+        rgb1 = hexValues();
+        console.log(rgb1);
+        btn1.innerHTML = `${rgb1}`;
+        btn1.style.backgroundColor = `${rgb1}`;
+        document.body.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+        copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}, ${rgb1}, ${rgb2});`;
+        copyCodeDiv.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+      };
+
+      const handleButton2 = () => {
+        rgb2 = hexValues();
+        console.log(rgb2);
+        btn2.innerHTML = `${rgb2}`;
+        btn2.style.backgroundColor = `${rgb2}`;
+        document.body.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+        copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}t, ${rgb1}, ${rgb2});`;
+        copyCodeDiv.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+      };
+
+      btn1.addEventListener("click", handleButton1);
+      btn2.addEventListener("click", handleButton2);
+
+      copyCodeDiv.addEventListener('click', () => {
+        navigator.clipboard.writeText(copyCodeDiv.innerText);
+        alert("CSS code copied, you can use it anywhere now 😎");
+      });
+
+      topArrowButton.addEventListener('click', () => {
+        direction = "to top";
+        document.body.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+        copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}, ${rgb1}, ${rgb2});`;
+        copyCodeDiv.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+      });
+
+      bottomArrowButton.addEventListener('click', () => {
+        direction = "to bottom";
+        document.body.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+        copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}, ${rgb1}, ${rgb2});`;
+        copyCodeDiv.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+      });
+
+      leftArrowButton.addEventListener('click', () => {
+        direction = "to left";
+        document.body.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+        copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}, ${rgb1}, ${rgb2});`;
+        copyCodeDiv.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+      });
+
+      rightArrowButton.addEventListener('click', () => {
+        direction = "to right";
+        document.body.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+        copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}, ${rgb1}, ${rgb2});`;
+        copyCodeDiv.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+      });
+
+      topLeftArrowButton.addEventListener('click', () => {
+        direction = "to top left";
+        document.body.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+        copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}, ${rgb1}, ${rgb2});`;
+        copyCodeDiv.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+      });
+
+      topRightArrowButton.addEventListener('click', () => {
+        direction = "to top right";
+        document.body.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+        copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}, ${rgb1}, ${rgb2});`;
+        copyCodeDiv.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+      });
+
+      bottomLeftArrowButton.addEventListener('click', () => {
+        direction = "to bottom left";
+        document.body.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+        copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}, ${rgb1}, ${rgb2});`;
+        copyCodeDiv.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+      });
+
+      bottomRightArrowButton.addEventListener('click', () => {
+        direction = "to bottom right";
+        document.body.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+        copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}, ${rgb1}, ${rgb2});`;
+        copyCodeDiv.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
+      });
 
 
-    <script src="backgroundGradientGeneratot.js"></script>
+    </script>
+    <!-- <script src="backgroundGradientGeneratot.js"></script> -->
   </body>
 </html>
