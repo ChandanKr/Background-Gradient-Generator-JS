@@ -40,7 +40,7 @@ const handleButton2 = () => {
     btn2.innerHTML = `${rgb2}`;
     btn2.style.backgroundColor = `${rgb2}`;
     document.body.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
-    copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}t, ${rgb1}, ${rgb2});`;
+    copyCodeDiv.innerHTML = `background-image: linear-gradient(${direction}, ${rgb1}, ${rgb2});`;
     copyCodeDiv.style.backgroundImage = `linear-gradient(${direction}, ${rgb1}, ${rgb2})`;
 };
 
